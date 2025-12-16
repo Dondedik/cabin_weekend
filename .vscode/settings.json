@@ -1,0 +1,40 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/css" 
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false,
+
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "NOTE",
+        "BUG",
+        "IDEA"
+    ],
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "tag",
+        "foreground": "white",
+        "background": "blue",
+        "opacity": 50
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "background": "#ffbd2a"  /* Orange */
+        },
+        "FIXME": {
+            "icon": "flame",
+            "background": "#f06292" /* Red */
+        },
+        "NOTE": {
+            "icon": "note",
+            "background": "#29b6f6" /* Blue */
+        }
+    },
+
+}

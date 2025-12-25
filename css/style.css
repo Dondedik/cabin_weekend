@@ -1704,20 +1704,21 @@ form label {
 }
 
 /* =========================================
-   MODERN LAYOUT UPGRADE (Flexbox)
+   FINAL LAYOUT REPAIR (Height & Overlaps)
    ========================================= */
-/* 1. Global Safety Fixes */
-html, body {
-  overflow-x: hidden !important; /* Kills the horizontal scrollbar */
-  width: 100%;
+/* 1. UNLOCK HEIGHTS (The "Overlap" Fix) 
+   This is the most important part. It tells the sections to grow 
+   with their content instead of cutting it off. */
+#fh5co-header,
+#fh5co-counter,
+.fh5co-cover,
+#fh5co-event,
+.fh5co-bg {
+  height: auto !important;
+  min-height: 100vh; /* At least full screen, but can grow */
 }
 
-iframe {
-  max-width: 100%; /* Prevents maps from overflowing */
-}
-
-/* 2. Convert Header & Events to Flexbox 
-   (Replaces the rigid Table-Cell layout) */
+/* 2. CONVERT TO FLEXBOX (Centering) */
 #fh5co-header .display-tc,
 #fh5co-event .display-tc,
 .fh5co-cover .display-tc {
@@ -1726,65 +1727,89 @@ iframe {
   justify-content: center;
   align-items: center;
   height: auto !important;
-  min-height: 100vh; /* Ensures full height */
-  padding-top: 120px !important; /* Space for Navbar */
-  padding-bottom: 50px !important;
   width: 100% !important;
+  /* Padding handles the spacing so buttons don't touch edges */
+  padding-top: 150px !important;
+  padding-bottom: 100px !important;
 }
 
-/* 3. Fix the Event Boxes Container */
-#fh5co-event .container {
-  width: 100%;
-  max-width: 1100px; /* Prevents it from getting too wide */
+/* 3. EVENT BOXES LAYOUT (Force Stack until 992px) */
+/* This fixes the "Bad columns on Tablet" issue */
+@media screen and (max-width: 992px) {
+  #fh5co-event .col-md-6 {
+    width: 100% !important; /* Force full width */
+    float: none !important; /* Stop trying to be next to each other */
+    margin-bottom: 30px;
+  }
+  /* Reset the width of the container inside */
+  #fh5co-event .event-wrap {
+    width: 100% !important;
+    max-width: 600px; /* Don't get too wide on tablets */
+    margin: 0 auto; /* Center it */
+  }
 }
-
-/* 4. The Clock - Intelligent Scaling */
-/* We use a fixed scale based on screen width to ensure it fits */
+/* 4. CLOCK SCALING & POSITIONING */
 .flipTimebox {
   display: block;
   width: auto;
-  margin: 0 auto 40px auto;
+  margin: 20px auto 40px auto; /* Added top margin to separate from image */
   transform-origin: top center;
-  /* High Z-Index ensures it doesn't block clicks on things behind/below it */
   position: relative;
   z-index: 10;
 }
 
-/* DESKTOP (Normal) */
+/* Desktop */
 @media screen and (min-width: 1200px) {
   .flipTimebox {
     transform: scale(0.9);
   }
 }
-/* LAPTOPS (Small Desktop) */
+/* Laptops (992px - 1199px) */
 @media screen and (max-width: 1199px) {
   .flipTimebox {
     transform: scale(0.8);
     margin-bottom: -20px;
   }
+  /* Reduce Title size here so it doesn't break line */
+  #fh5co-header h1 {
+    font-size: 60px !important;
+  }
 }
-/* TABLETS (Portrait & Landscape) */
+/* Tablets (768px - 991px) */
 @media screen and (max-width: 991px) {
   .flipTimebox {
-    transform: scale(0.65);
-    margin-bottom: -35px;
+    transform: scale(0.75);
+    margin-bottom: -30px;
   }
-  /* Fix Title overlapping */
   #fh5co-header h1 {
     font-size: 50px !important;
-    line-height: 1.2 !important;
     margin-bottom: 20px !important;
   }
 }
-/* MOBILE PHONES */
-@media screen and (max-width: 550px) {
+/* Mobile (Up to 767px) */
+@media screen and (max-width: 767px) {
+  /* Increased scale as requested (was 0.45) */
   .flipTimebox {
-    transform: scale(0.45);
-    margin-bottom: -50px;
+    transform: scale(0.6);
+    margin-bottom: -40px;
   }
-  /* Ensure padding is tight on mobile */
-  .event-wrap {
-    padding: 20px 10px !important;
-    margin-bottom: 20px;
+  #fh5co-header h1 {
+    font-size: 40px !important;
   }
+}
+/* 5. GENERAL CLEANUP */
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+/* Fix the "Bist du dabei?" overlapping */
+#fh5co-started, .fh5co-section-gray {
+  clear: both !important;
+  position: relative;
+  z-index: 20; /* Ensure it stays on top of any float weirdness */
 }

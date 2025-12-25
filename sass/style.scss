@@ -474,7 +474,19 @@ h1, h2, h3, h4, h5, h6, figure {
 	.event-wrap{
 		border: 2px solid rgba($brand-white,.5);
 		background:rgba($brand-white,.1);
+/*
 		padding: 30px; 
+--------------------------------------------------------------------------------------------------------------
+--- Events box padding fix
+--------------------------------------------------------------------------------------------------------------
+*/
+		padding: 30px;
+		@media screen and (max-width: $screen-sm) {
+			padding: 20px 10px; /* smaller padding on mobile */
+		}
+/*
+--------------------------------------------------------------------------------------------------------------
+*/
 		width: 100%;
 		float: left;
 		@include border-radius(4px);
@@ -867,6 +879,21 @@ form {
 	.display-tc {
 		display: table-cell!important;
 		vertical-align: middle;
+/* 
+--------------------------------------------------------------------------------------------------------------
+--- Events boxes fix
+--------------------------------------------------------------------------------------------------------------
+This forces the boxes to stack on screens smaller than 1200px width
+*/
+		@media screen and (max-width: 1199px) {
+			display: block !important;
+			height: auto !important;
+			padding-top: 100px; /* More space for navigation bar */
+			padding-bottom: 50px;
+		}
+/* 
+--------------------------------------------------------------------------------------------------------------
+*/	
 		h1, h2 {
 			margin: 0;
 			padding: 0;
@@ -950,56 +977,92 @@ form {
 }
 
 
-// COUNTDOWN CUSTOM
-.simply-countdown {
-    /* The countdown */
-    margin-bottom: 2em;
-}
-.simply-countdown > .simply-section {
-    /* coutndown blocks */
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    background: rgba($brand-primary,.8);
-    margin: 0 4px;
-    @include border-radius(50%);
-    position: relative;
+// // COUNTDOWN CUSTOM
+// .simply-countdown {
+//     /* The countdown */
+//     margin-bottom: 2em;
+// }
+// .simply-countdown > .simply-section {
+//     /* coutndown blocks */
+//     display: inline-block;
+//     width: 100px;
+//     height: 100px;
+//     background: rgba($brand-primary,.8);
+//     margin: 0 4px;
+//     @include border-radius(50%);
+//     position: relative;
 
-    animation: pulse 1s ease infinite, 
-}
+//     animation: pulse 1s ease infinite, 
+// }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
+// @keyframes pulse {
+//   0% { transform: scale(1); }
+//   50% { transform: scale(1.05); }
+//   100% { transform: scale(1); }
+// }
 
-.simply-countdown > .simply-section > div {
-    /* countdown block inner div */
-    display: table-cell;
-    vertical-align: middle;
-    height: 100px;
-    width: 100px;
-}
+// .simply-countdown > .simply-section > div {
+//     /* countdown block inner div */
+//     display: table-cell;
+//     vertical-align: middle;
+//     height: 100px;
+//     width: 100px;
+// }
 
-.simply-countdown > .simply-section .simply-amount,
-.simply-countdown > .simply-section .simply-word {
-	display: block;
-	color: rgba($brand-white,1);
-    /* amounts and words */
-}
+// .simply-countdown > .simply-section .simply-amount,
+// .simply-countdown > .simply-section .simply-word {
+// 	display: block;
+// 	color: rgba($brand-white,1);
+//     /* amounts and words */
+// }
 
-.simply-countdown > .simply-section .simply-amount {
-	font-size: 30px;
-    /* amounts */
-}
+// .simply-countdown > .simply-section .simply-amount {
+// 	font-size: 30px;
+//     /* amounts */
+// }
 
-.simply-countdown > .simply-section .simply-word {
-	color: rgba($brand-white,.7);
-	text-transform: uppercase;
-	font-size: 12px;
-    /* words */
+// .simply-countdown > .simply-section .simply-word {
+// 	color: rgba($brand-white,.7);
+// 	text-transform: uppercase;
+// 	font-size: 12px;
+//     /* words */
+// }
+/* 
+Whole block before commented out with // by STRG + # because it already has /* inside so block comments didnt worked...
+--------------------------------------------------------------------------------------------------------------
+--- Clock line break fix
+--------------------------------------------------------------------------------------------------------------
+*/
+.flipTimebox {
+    width: 100%;
+    max-width: 700px;
+	display: flex; /* Use flexbox to force perfect centering */
+	justify-content: center;
+    margin: 0 auto 40px auto;
+    transform-origin: top center;
+    transition: transform 0.2s ease; /* Makes the jump between steps smooth */
+
+	/* Step 1: Tablets (Scale slightly) */
+    @media screen and (max-width: 768px) {
+        transform: scale(0.90); 
+        margin-bottom: -20px;
+    }
+
+    /* Step 2: Phones */
+    @media screen and (max-width: 500px) {
+        transform: scale(0.75); 
+        margin-bottom: -30px;
+    }
+
+    /* Step 3: Small Phones */
+    @media screen and (max-width: 400px) {
+        transform: scale(0.60); 
+        margin-bottom: -50px;
+    }
 }
+/* 
+--------------------------------------------------------------------------------------------------------------
+*/
 
 #fh5co-testimonial,
 #fh5co-services,
@@ -1810,98 +1873,10 @@ form {
 }
 
 /* 
-==================================================================================================================================
-MASTER FIXES - OVERRIDE EVERYTHING
-================================================================================================================================== 
+--------------------------------------------------------------------------------------------------------------
+--- Google maps fix
+--------------------------------------------------------------------------------------------------------------
 */
-
-/* --- UHR FIX (Zentrierung & Umbruch) --- */
-.flipTimebox {
-    /* Flexbox erzwingt Zentrierung, egal was das Parent-Element macht */
-    display: flex !important; 
-    justify-content: center !important;
-    align-items: center !important;
-    
-    width: 100% !important;
-    margin: 0 auto 40px auto !important;
-    
-    /* Verhindert Umbruch */
-    white-space: nowrap !important; 
-    
-    transform-origin: top center;
-    transition: transform 0.2s ease;
-}
-
-/* Harte Skalierungsschritte für die Uhr */
-@media screen and (max-width: 1250px) {
-    .flipTimebox { transform: scale(0.9); margin-bottom: -10px; }
-}
-@media screen and (max-width: 992px) {
-    .flipTimebox { transform: scale(0.8); margin-bottom: -20px; }
-}
-@media screen and (max-width: 600px) {
-    .flipTimebox { transform: scale(0.65); margin-bottom: -40px; }
-}
-
-
-/* --- TITEL FIX ("Maike & Dominik") --- */
-/* Wir nutzen 'body #page ...', um stärker zu sein als das Template */
-body #page #fh5co-header .display-tc h1,
-body #page .fh5co-cover .display-tc h1 {
-    font-family: 'Sacramento', Arial, serif; /* Falls Variable nicht greift */
-    margin-bottom: 0px;
-    line-height: 1.5;
-    
-    /* Standard Desktop */
-    font-size: 100px;
-}
-
-/* Zwinge die Schrift klein zu bleiben, bis der Bildschirm riesig ist (1200px) */
-@media screen and (max-width: 1199px) {
-    body #page #fh5co-header .display-tc h1,
-    body #page .fh5co-cover .display-tc h1 {
-        font-size: 60px !important; /* Kleiner, damit es passt */
-    }
-}
-@media screen and (max-width: 768px) {
-    body #page #fh5co-header .display-tc h1,
-    body #page .fh5co-cover .display-tc h1 {
-        font-size: 40px !important;
-    }
-}
-
-
-/* --- EVENT BOXEN FIX (Stapelung erzwingen) --- */
-/* Das ist der wichtigste Teil für dein 668px Problem */
-
-/* Wir deaktivieren das Tabellen-Verhalten komplett */
-#fh5co-event .display-t, 
-#fh5co-event .display-tc {
-    display: block !important;
-    height: auto !important;
-    width: 100% !important;
-    padding: 0 !important;
-}
-
-/* Wir zwingen alle Spalten auf 100% Breite, solange wir unter 1200px sind.
-   'body' davor erhöht die Priorität. */
-@media screen and (max-width: 1199px) {
-    body #fh5co-event .col-md-6,
-    body #fh5co-event .col-sm-6,
-    body #fh5co-event .event-col {
-        width: 100% !important;
-        float: none !important;
-        display: block !important;
-        margin-bottom: 40px !important;
-    }
-    
-    /* Padding anpassen, damit die Karte Platz hat */
-    body #fh5co-event .event-wrap {
-        padding: 20px 10px !important;
-    }
-}
-
-/* Maps Fix global */
 iframe {
-    max-width: 100% !important;
+	max-width: 100%; /* Ensures map never overflows the screen */
 }

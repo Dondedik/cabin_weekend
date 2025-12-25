@@ -368,10 +368,25 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-event .event-wrap {
   border: 2px solid rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.1);
+  /*
+  		padding: 30px; 
+  --------------------------------------------------------------------------------------------------------------
+  --- Events box padding fix
+  --------------------------------------------------------------------------------------------------------------
+  */
   padding: 30px;
+  /*
+  --------------------------------------------------------------------------------------------------------------
+  */
   width: 100%;
   float: left;
   border-radius: 4px;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-counter .event-wrap,
+  #fh5co-event .event-wrap {
+    padding: 20px 10px; /* smaller padding on mobile */
+  }
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap,
@@ -765,6 +780,25 @@ form label {
 .fh5co-cover .display-tc {
   display: table-cell !important;
   vertical-align: middle;
+  /* 
+  --------------------------------------------------------------------------------------------------------------
+  --- Events boxes fix
+  --------------------------------------------------------------------------------------------------------------
+  This forces the boxes to stack on screens smaller than 1200px width
+  */
+  /* 
+  --------------------------------------------------------------------------------------------------------------
+  */
+}
+@media screen and (max-width: 1199px) {
+  #fh5co-header .display-tc,
+  #fh5co-counter .display-tc,
+  .fh5co-cover .display-tc {
+    display: block !important;
+    height: auto !important;
+    padding-top: 100px; /* More space for navigation bar */
+    padding-bottom: 50px;
+  }
 }
 #fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
 #fh5co-counter .display-tc h1,
@@ -865,61 +899,46 @@ form label {
   margin-left: 3px;
 }
 
-.simply-countdown {
-  /* The countdown */
-  margin-bottom: 2em;
+/* 
+Whole block before commented out with // by STRG + # because it already has /* inside so block comments didnt worked...
+--------------------------------------------------------------------------------------------------------------
+--- Clock line break fix
+--------------------------------------------------------------------------------------------------------------
+*/
+.flipTimebox {
+  width: 100%;
+  max-width: 700px;
+  display: flex; /* Use flexbox to force perfect centering */
+  justify-content: center;
+  margin: 0 auto 40px auto;
+  transform-origin: top center;
+  transition: transform 0.2s ease; /* Makes the jump between steps smooth */
+  /* Step 1: Tablets (Scale slightly) */
+  /* Step 2: Phones */
+  /* Step 3: Small Phones */
 }
-
-.simply-countdown > .simply-section {
-  /* coutndown blocks */
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background: rgba(241, 78, 149, 0.8);
-  margin: 0 4px;
-  border-radius: 50%;
-  position: relative;
-  animation: pulse 1s ease infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
+@media screen and (max-width: 768px) {
+  .flipTimebox {
+    transform: scale(0.9);
+    margin-bottom: -20px;
   }
 }
-.simply-countdown > .simply-section > div {
-  /* countdown block inner div */
-  display: table-cell;
-  vertical-align: middle;
-  height: 100px;
-  width: 100px;
+@media screen and (max-width: 500px) {
+  .flipTimebox {
+    transform: scale(0.75);
+    margin-bottom: -30px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .flipTimebox {
+    transform: scale(0.6);
+    margin-bottom: -50px;
+  }
 }
 
-.simply-countdown > .simply-section .simply-amount,
-.simply-countdown > .simply-section .simply-word {
-  display: block;
-  color: white;
-  /* amounts and words */
-}
-
-.simply-countdown > .simply-section .simply-amount {
-  font-size: 30px;
-  /* amounts */
-}
-
-.simply-countdown > .simply-section .simply-word {
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  font-size: 12px;
-  /* words */
-}
-
+/* 
+--------------------------------------------------------------------------------------------------------------
+*/
 #fh5co-testimonial,
 #fh5co-services,
 #fh5co-started,
@@ -1701,4 +1720,13 @@ form label {
 
 .js .animate-box {
   opacity: 0;
+}
+
+/* 
+--------------------------------------------------------------------------------------------------------------
+--- Google maps fix
+--------------------------------------------------------------------------------------------------------------
+*/
+iframe {
+  max-width: 100%; /* Ensures map never overflows the screen */
 }

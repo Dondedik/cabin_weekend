@@ -1068,18 +1068,46 @@ form {
 
 /* 
 ----------------------------------------------------------------------------------------------------------------
---- Scale the countdown timer
+--- Scale the countdown timer for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
 */
 
+// Fix v1
+// @media screen and (max-width: 768px) {
+//     .flipTimebox {
+//         display: flex;             /* Centering logic */
+//         justify-content: center;   /* Centering logic */
+//         width: 100%;               /* Ensure it takes full width */
+//         transform: scale(0.75);    /* CHANGED THIS: Shrinks the clock to 75% size on phones */
+//         transform-origin: center;  /* Keeps it centered while shrinking */
+//         margin-bottom: -40px;      /* Pulls the next element up so there isn't a huge gap */
+//     }
+// }
+
+// Fix v2
+
 @media screen and (max-width: 768px) {
     .flipTimebox {
-        display: flex;             /* Centering logic */
-        justify-content: center;   /* Centering logic */
-        width: 100%;               /* Ensure it takes full width */
-        transform: scale(0.75);    /* CHANGED THIS: Shrinks the clock to 75% size on phones */
-        transform-origin: center;  /* Keeps it centered while shrinking */
-        margin-bottom: -40px;      /* Pulls the next element up so there isn't a huge gap */
+        display: flex !important;           /* Centering logic */
+        justify-content: center !important;  /* Centering logic */
+        width: 100% !important;
+        
+        /* 1. Shrink it slightly more (0.65) to fit all 4 columns */
+        transform: scale(0.65) !important; 
+        transform-origin: center center;
+        
+        /* 2. Remove the extra vertical space created by scaling */
+        margin-top: -30px;
+        margin-bottom: -40px;
+    }
+
+    .flipTimebox .clock {
+        /* 3. Force the clock to stay on ONE line */
+        width: 700px !important;    /* Give it a wide 'virtual' width so it doesn't wrap */
+        display: flex !important;
+        justify-content: center !important;
+        float: none !important;     /* Disable floats that cause wrapping */
+        white-space: nowrap !important; 
     }
 }
 

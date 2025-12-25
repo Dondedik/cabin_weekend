@@ -1,3 +1,13 @@
+/* 
+$brand-primary: #F14E95 !default;
+$brand-secondary: #118DF0 !default; 
+--------------------------------------------------------------------------------------------------------------
+--- Change default colors
+--------------------------------------------------------------------------------------------------------------
+*/
+/*
+--------------------------------------------------------------------------------------------------------------
+*/
 @font-face {
   font-family: "icomoon";
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
@@ -43,11 +53,11 @@ body {
 }
 
 a {
-  color: #F14E95;
+  color: #555555;
   transition: 0.5s;
 }
 a:hover, a:active, a:focus {
-  color: #F14E95;
+  color: #555555;
   outline: none;
   text-decoration: none;
 }
@@ -65,17 +75,17 @@ h1, h2, h3, h4, h5, h6, figure {
 
 ::-webkit-selection {
   color: #fff;
-  background: #F14E95;
+  background: #555555;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #F14E95;
+  background: #555555;
 }
 
 ::selection {
   color: #fff;
-  background: #F14E95;
+  background: #555555;
 }
 
 .fh5co-nav {
@@ -181,7 +191,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #fff;
 }
 .fh5co-nav ul li.btn-cta a {
-  color: #F14E95;
+  color: #555555;
 }
 .fh5co-nav ul li.btn-cta a span {
   background: #fff;
@@ -398,85 +408,40 @@ h1, h2, h3, h4, h5, h6, figure {
 */
 #fh5co-counter,
 #fh5co-event {
-  height: 850px;
+  height: auto !important;
   float: left;
+  width: 100%;
+  background: #fff !important;
 }
 #fh5co-counter .display-t,
 #fh5co-counter .display-tc,
 #fh5co-event .display-t,
 #fh5co-event .display-tc {
-  height: 700px;
-  display: table;
+  height: auto !important;
+  display: block !important;
   width: 100%;
-}
-@media screen and (max-width: 768px) {
-  #fh5co-counter .display-tc,
-  #fh5co-event .display-tc {
-    display: block !important;
-    height: auto !important;
-    padding: 40px 0;
-  }
-}
-#fh5co-counter .fh5co-heading h2,
-#fh5co-event .fh5co-heading h2 {
-  color: #fff;
-}
-#fh5co-counter .fh5co-heading span,
-#fh5co-event .fh5co-heading span {
-  color: rgba(255, 255, 255, 0.5);
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 2px;
-  font-weight: 600;
 }
 #fh5co-counter .overlay,
 #fh5co-event .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-@media screen and (max-width: 768px) {
-  #fh5co-counter,
-  #fh5co-event {
-    height: inherit;
-    padding: 7em 0;
-  }
-  #fh5co-counter .display-t,
-  #fh5co-counter .display-tc,
-  #fh5co-event .display-t,
-  #fh5co-event .display-tc {
-    height: inherit;
-  }
+  display: none !important;
 }
 #fh5co-counter .event-wrap,
 #fh5co-event .event-wrap {
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
+  border: 2px solid #ddd !important;
+  background: #f9f9f9 !important;
+  padding: 25px !important;
   width: 100%;
   float: left;
   box-sizing: border-box;
   border-radius: 4px;
-}
-@media screen and (max-width: 768px) {
-  #fh5co-counter .event-wrap,
-  #fh5co-event .event-wrap {
-    margin-bottom: 10px;
-    padding: 20px !important;
-  }
+  margin-bottom: 20px;
 }
 #fh5co-counter .event-wrap h3,
 #fh5co-event .event-wrap h3 {
-  font-size: 20px;
-  color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  display: block;
-  padding-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 18px;
+  color: #444 !important;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap h3,
@@ -487,8 +452,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-counter .event-wrap p, #fh5co-counter .event-wrap span,
 #fh5co-event .event-wrap p,
 #fh5co-event .event-wrap span {
-  display: block;
-  color: rgba(255, 255, 255, 0.8);
+  color: #666 !important;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap p, #fh5co-counter .event-wrap span,
@@ -497,22 +461,9 @@ h1, h2, h3, h4, h5, h6, figure {
     font-size: 13px !important;
   }
 }
-#fh5co-counter .event-wrap iframe,
-#fh5co-event .event-wrap iframe {
-  width: 100% !important;
-  border-radius: 4px;
-  margin-top: 10px;
-}
 #fh5co-counter .event-wrap i,
 #fh5co-event .event-wrap i {
-  color: white;
-  font-size: 20px;
-}
-#fh5co-counter .event-wrap .event-col,
-#fh5co-event .event-wrap .event-col {
-  width: 50%;
-  float: left;
-  margin-bottom: 30px;
+  color: #555 !important;
 }
 
 /*
@@ -816,7 +767,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  color: #F14E95;
+  color: #555555;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -835,7 +786,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
 }
 .fh5co-contact-info ul li:before {
-  color: #F14E95;
+  color: #555555;
   position: absolute;
   left: 0;
   top: 0.05em;
@@ -871,74 +822,118 @@ form label {
   font-weight: normal !important;
 }
 
+/*
+#fh5co-header,
+#fh5co-counter,
+.fh5co-cover {
+	.display-tc {
+		display: table-cell!important;
+		vertical-align: middle;
+		h1, h2 {
+			margin: 0;
+			padding: 0;
+			color: rgba(255,255,255,1);
+		}
+		h1 {
+			margin-bottom: 0px;
+			font-size: 100px;
+			line-height: 1.5;
+			font-family: $font-secondary;
+			@media screen and (max-width: $screen-sm) {
+				font-size: 40px;
+			}
+			@media screen and (max-width: $screen-xs) {
+				font-size: 30px;
+			}
+		}
+		h2 {
+			font-size: 20px;
+			line-height: 1.5;
+			margin-bottom: 30px;
+			@media screen and (max-width: $screen-xs) {
+				font-size: 16px;
+			}
+		}
+		.btn {
+			padding: 15px 20px;
+			background: $brand-white!important;
+			color: $brand-primary;
+			border: none!important;
+			font-size: 14px;
+			text-transform: uppercase;
+			// @include border-radius(2px);
+			&:hover {
+				background: $brand-white!important;
+				-webkit-box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
+				-moz-box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
+				box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
+			}
+		}
+	}
+}
+----------------------------------------------------------------------------------------------------------------
+--- Header full screen height & matching button color
+----------------------------------------------------------------------------------------------------------------
+*/
+#fh5co-header,
+#fh5co-counter,
+.fh5co-cover {
+  height: 100vh !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+}
+#fh5co-header .display-t,
 #fh5co-header .display-tc,
+#fh5co-counter .display-t,
 #fh5co-counter .display-tc,
+.fh5co-cover .display-t,
 .fh5co-cover .display-tc {
+  height: 100vh !important;
   display: table-cell !important;
   vertical-align: middle;
 }
-#fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
-#fh5co-counter .display-tc h1,
-#fh5co-counter .display-tc h2,
-.fh5co-cover .display-tc h1,
-.fh5co-cover .display-tc h2 {
-  margin: 0;
-  padding: 0;
-  color: rgb(255, 255, 255);
-}
+#fh5co-header .display-t h1,
 #fh5co-header .display-tc h1,
+#fh5co-counter .display-t h1,
 #fh5co-counter .display-tc h1,
+.fh5co-cover .display-t h1,
 .fh5co-cover .display-tc h1 {
   margin-bottom: 0px;
   font-size: 100px;
   line-height: 1.5;
   font-family: "Sacramento", Arial, serif;
+  color: #fff;
 }
 @media screen and (max-width: 768px) {
+  #fh5co-header .display-t h1,
   #fh5co-header .display-tc h1,
+  #fh5co-counter .display-t h1,
   #fh5co-counter .display-tc h1,
+  .fh5co-cover .display-t h1,
   .fh5co-cover .display-tc h1 {
     font-size: 40px;
   }
 }
-@media screen and (max-width: 480px) {
-  #fh5co-header .display-tc h1,
-  #fh5co-counter .display-tc h1,
-  .fh5co-cover .display-tc h1 {
-    font-size: 30px;
-  }
-}
-#fh5co-header .display-tc h2,
-#fh5co-counter .display-tc h2,
-.fh5co-cover .display-tc h2 {
-  font-size: 20px;
-  line-height: 1.5;
-  margin-bottom: 30px;
-}
-@media screen and (max-width: 480px) {
-  #fh5co-header .display-tc h2,
-  #fh5co-counter .display-tc h2,
-  .fh5co-cover .display-tc h2 {
-    font-size: 16px;
-  }
-}
+#fh5co-header .display-t .btn,
 #fh5co-header .display-tc .btn,
+#fh5co-counter .display-t .btn,
 #fh5co-counter .display-tc .btn,
+.fh5co-cover .display-t .btn,
 .fh5co-cover .display-tc .btn {
-  padding: 15px 20px;
+  padding: 15px 30px;
   background: #fff !important;
-  color: #F14E95;
+  color: #555 !important;
   border: none !important;
   font-size: 14px;
   text-transform: uppercase;
-}
-#fh5co-header .display-tc .btn:hover,
-#fh5co-counter .display-tc .btn:hover,
-.fh5co-cover .display-tc .btn:hover {
-  background: #fff !important;
-  box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
+  border-radius: 30px;
 }
 
+/*
+----------------------------------------------------------------------------------------------------------------
+*/
 #fh5co-counter {
   text-align: center;
 }
@@ -980,7 +975,7 @@ form label {
 ----------------------------------------------------------------------------------------------------------------
 --- Scale the countdown timer for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
-
+// Fix v3: REMOVE SECONDS & IMPROVE MOBILE LOOK ---
 */
 .flip-clock-divider.seconds,
 .flip-clock-wrapper ul:nth-last-child(1),
@@ -1020,7 +1015,7 @@ form label {
   display: inline-block;
   width: 100px;
   height: 100px;
-  background: rgba(241, 78, 149, 0.8);
+  background: rgba(85, 85, 85, 0.8);
   margin: 0 4px;
   border-radius: 50%;
   position: relative;
@@ -1118,7 +1113,7 @@ form label {
   font-size: 20px;
   background: #fff;
   padding: 20px;
-  color: #F14E95;
+  color: #555555;
   border-radius: 50%;
 }
 @media screen and (max-width: 768px) {
@@ -1138,7 +1133,7 @@ form label {
 }
 .couple-half h3 {
   font-family: "Sacramento", Arial, serif;
-  color: #F14E95;
+  color: #555555;
   font-size: 30px;
 }
 .couple-half .groom, .couple-half .bride {
@@ -1222,7 +1217,7 @@ form label {
   height: 90px;
   font-size: 40px;
   line-height: 40px;
-  color: #F14E95;
+  color: #555555;
 }
 .feature-center p, .feature-center h3 {
   margin-bottom: 30px;
@@ -1233,18 +1228,50 @@ form label {
   color: #5d5d5d;
 }
 
+/*
 .fh5co-heading {
-  margin-bottom: 5em;
+	margin-bottom: 5em;
+	&.fh5co-heading-sm {
+		margin-bottom: 2em;
+	}
+	h2 {
+		font-size: 60px;
+		margin-bottom: 10px;
+		line-height: 1.5;
+		font-weight: bold;
+		color: $brand-primary;
+		font-family: $font-secondary;
+		@media screen and (max-width: $screen-sm){
+			font-size: 40px;
+		}
+	}
+	p {
+		font-size: 18px;
+		line-height: 1.5;
+		color: #828282;
+	}
+	span{
+		text-transform: uppercase;
+		font-size: 13px;
+		letter-spacing: 2px;
+		font-weight: 600;
+		color: rgba($brand-black,.4);
+	}
 }
-.fh5co-heading.fh5co-heading-sm {
-  margin-bottom: 2em;
+
+--------------------------------------------------------------------------------------------------------------
+--- Whitespace fix for sections & heading styles
+--------------------------------------------------------------------------------------------------------------
+*/
+.fh5co-heading {
+  margin-bottom: 2em !important;
 }
 .fh5co-heading h2 {
   font-size: 60px;
   margin-bottom: 10px;
   line-height: 1.5;
   font-weight: bold;
-  color: #F14E95;
+  color: #555 !important;
   font-family: "Sacramento", Arial, serif;
 }
 @media screen and (max-width: 768px) {
@@ -1254,17 +1281,12 @@ form label {
 }
 .fh5co-heading p {
   font-size: 18px;
-  line-height: 1.5;
   color: #828282;
 }
-.fh5co-heading span {
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 2px;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.4);
-}
 
+/* 
+--------------------------------------------------------------------------------------------------------------
+*/
 #fh5co-testimonial .wrap-testimony {
   position: relative;
 }
@@ -1279,7 +1301,7 @@ form label {
   display: block;
 }
 #fh5co-testimonial .wrap-testimony .testimony-slide span a.twitter {
-  color: #F14E95;
+  color: #555555;
   font-weight: 300;
 }
 #fh5co-testimonial .wrap-testimony .testimony-slide figure {
@@ -1360,7 +1382,7 @@ form label {
   display: table-cell;
   vertical-align: middle;
   font-size: 30px;
-  color: #F14E95;
+  color: #555555;
 }
 .feature-left .feature-copy {
   float: left;
@@ -1422,7 +1444,7 @@ form label {
 #fh5co-started .btn {
   height: 54px;
   border: none !important;
-  background: #F14E95;
+  background: #555555;
   color: #fff;
   font-size: 16px;
   text-transform: uppercase;
@@ -1466,7 +1488,7 @@ form label {
 }
 .owl-carousel .owl-controls .owl-dot.active span {
   background: transparent;
-  border: 2px solid #F14E95;
+  border: 2px solid #555555;
 }
 
 #fh5co-offcanvas {
@@ -1685,21 +1707,21 @@ form label {
 }
 
 .btn-primary {
-  background: #F14E95;
+  background: #555555;
   color: #fff;
-  border: 2px solid #F14E95;
+  border: 2px solid #555555;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: rgb(242.8691099476, 101.6308900524, 163.1518324607) !important;
-  border-color: rgb(242.8691099476, 101.6308900524, 163.1518324607) !important;
+  background: rgb(97.75, 97.75, 97.75) !important;
+  border-color: rgb(97.75, 97.75, 97.75) !important;
 }
 .btn-primary.btn-outline {
   background: transparent;
-  color: #F14E95;
-  border: 2px solid #F14E95;
+  color: #555555;
+  border: 2px solid #555555;
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: #F14E95;
+  background: #555555;
   color: #fff;
 }
 
@@ -1823,7 +1845,7 @@ form label {
 .form-control:active, .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #F14E95;
+  border-color: #555555;
 }
 
 .row-pb-md {

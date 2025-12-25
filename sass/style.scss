@@ -7,8 +7,19 @@ $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
+/* 
 $brand-primary: #F14E95 !default;
 $brand-secondary: #118DF0 !default; 
+--------------------------------------------------------------------------------------------------------------
+--- Change default colors
+--------------------------------------------------------------------------------------------------------------
+*/
+$brand-primary: #555555 !default;
+$brand-secondary: #777777  !default; 
+/*
+--------------------------------------------------------------------------------------------------------------
+*/
+
 
 $brand-white: #fff;
 $brand-black: #000;
@@ -624,81 +635,48 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 
-//Fix v2: + white background and matching whitespace
+//Fix v2: + removes grey background and gaps
 
 #fh5co-counter,
 #fh5co-event {
-	height: auto !important; // CHANGED: Removes the 850px height
+	height: auto !important; // FIX: Removes the huge empty gap
 	float: left;
-    background: #fff !important; // CHANGED: Force background to white
+	width: 100%;
+	background: #fff !important; // FIX: Changes section to White
     
 	.display-t,
 	.display-tc {
-		height: auto !important; // CHANGED: Removes the 700px height
-		display: block !important; // CHANGED: Table to block for better spacing
+		height: auto !important;
+		display: block !important; // FIX: Removes table behavior that causes gaps
 		width: 100%;
 	}
 
-    @media screen and (max-width: $screen-sm) {
-        .display-tc {
-            padding: 20px 0;
-        }
-    }
-	
-	.fh5co-heading {
-		margin-bottom: 2em !important; // Tightens space under "Termine"
-		h2 {
-			color: #555 !important; // Grey header
-		}
-	}
-
 	.overlay {
-		display: none !important; // CHANGED: Removes the grey dark layer
+		display: none !important; // FIX: Removes the dark grey veil from your screenshot
 	}
 
 	.event-wrap {
-		border: 2px solid #eee !important; // Light border for white background
-		background: #fcfcfc !important; 
-		padding: 30px;  
+		border: 2px solid #ddd !important; // Darker border for white background
+		background: #f9f9f9 !important; 
+		padding: 25px !important;
 		width: 100%;
 		float: left;
 		box-sizing: border-box; 
 		@include border-radius(4px);
-
-		@media screen and (max-width: $screen-sm) {
-			margin-bottom: 10px;
-			padding: 20px !important;
-		}
+        margin-bottom: 20px;
 
 		h3 {
-			font-size: 20px;
-			color: #444 !important; // Darker text for readability
-			border-bottom: 1px solid #eee !important;
-			display: block;
-			padding-bottom: 20px;
-			text-transform: uppercase;
-			letter-spacing: 2px;
+			font-size: 18px;
+			color: #444 !important; // Grey Title
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 15px;
+            @media screen and (max-width: $screen-sm) { font-size: 16px; }
 		}
 		p, span {
-			display: block;
-			color: #666 !important;
-            @media screen and (max-width: $screen-sm) {
-                font-size: 13px !important;
-            }
+			color: #666 !important; // Grey Text
+            @media screen and (max-width: $screen-sm) { font-size: 13px !important; }
 		}
- 		iframe {
-            width: 100% !important; 
-            border-radius: 4px;
-        }
-		i {
-			color: $brand-primary; // Keep icons pink for a little color
-			font-size: 20px;
-		}
-		.event-col {
-			width: 50%;
-			float: left;
-			margin-bottom: 30px;
-		}
+        i { color: #555 !important; } // Icons are now Grey
 	} 
 }
 
@@ -1111,57 +1089,43 @@ form {
 --- Header full screen height & matching button color
 ----------------------------------------------------------------------------------------------------------------
 */
+
 #fh5co-header,
 #fh5co-counter,
 .fh5co-cover {
+	height: 100vh !important; // FIX: Makes home part fit the phone screen height
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	width: 100%;
+    
+	.display-t,
 	.display-tc {
-		display: table-cell!important;
+		height: 100vh !important; // FIX: Centers content in the 100vh height
+		display: table-cell !important;
 		vertical-align: middle;
-		h1, h2 {
-			margin: 0;
-			padding: 0;
-			color: rgba(255,255,255,1);
-		}
+
 		h1 {
 			margin-bottom: 0px;
 			font-size: 100px;
 			line-height: 1.5;
 			font-family: $font-secondary;
-			@media screen and (max-width: $screen-sm) {
-				font-size: 40px;
-			}
-			@media screen and (max-width: $screen-xs) {
-				font-size: 30px;
-			}
+			color: #fff;
+			@media screen and (max-width: $screen-sm) { font-size: 40px; }
 		}
-		h2 {
-			font-size: 20px;
-			line-height: 1.5;
-			margin-bottom: 30px;
-			@media screen and (max-width: $screen-xs) {
-				font-size: 16px;
-			}
-		}
+
 		.btn {
 			padding: 15px 30px;
-			background: $brand-white!important;
-			color: #555 !important; // CHANGED THIS: Pink to Grey
-			border: none!important;
+			background: $brand-white !important;
+			color: #555 !important; // FIX: Button writing is now Grey
+			border: none !important;
 			font-size: 14px;
 			text-transform: uppercase;
-			&:hover {
-				background: $brand-white!important;
-				-webkit-box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
-				-moz-box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
-				box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
-			}
+			border-radius: 30px;
 		}
 	}
 }
 
-.fh5co-cover, .fh5co-cover .display-t, .fh5co-cover .display-tc {
-    height: 100vh !important; // Makes it fit the phone screen height perfectly
-}
 /*
 ----------------------------------------------------------------------------------------------------------------
 */
@@ -1211,7 +1175,7 @@ form {
 ----------------------------------------------------------------------------------------------------------------
 --- Scale the countdown timer for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
-// Fix v3: REMOVE SECONDS & IMPROVE MOBILE LOOK --- */
+// Fix v3: REMOVE SECONDS & IMPROVE MOBILE LOOK ---
 */
 
 
@@ -1453,7 +1417,7 @@ form {
 	}
 }
 
-
+/*
 .fh5co-heading {
 	margin-bottom: 5em;
 	&.fh5co-heading-sm {
@@ -1483,6 +1447,32 @@ form {
 		color: rgba($brand-black,.4);
 	}
 }
+
+--------------------------------------------------------------------------------------------------------------
+--- Whitespace fix for sections & heading styles
+--------------------------------------------------------------------------------------------------------------
+*/
+
+.fh5co-heading {
+	margin-bottom: 2em !important; // FIX: Reduces whitespace after headers
+	h2 {
+		font-size: 60px;
+		margin-bottom: 10px;
+		line-height: 1.5;
+		font-weight: bold;
+		color: #555 !important; // FIX: All headers are now Grey
+		font-family: $font-secondary;
+		@media screen and (max-width: $screen-sm){ font-size: 40px; }
+	}
+	p {
+		font-size: 18px;
+		color: #828282;
+	}
+}
+
+/* 
+--------------------------------------------------------------------------------------------------------------
+*/
 
 #fh5co-testimonial {
 	.wrap-testimony{
@@ -2107,42 +2097,3 @@ form {
 		opacity: 0;
 	}
 }
-
-/*
-----------------------------------------------------------------------------------------------------------------
---- Global Style Master Overrides
-----------------------------------------------------------------------------------------------------------------
-*/
-
-// 1. Fix all section headings (Grey color and tighter spacing)
-.fh5co-heading {
-    margin-bottom: 2.5em !important; // Reduces whitespace after ALL headers
-    h2 {
-        color: #555 !important; // Force all Pink headers to Grey
-    }
-}
-
-// 2. Reduce huge gaps between main sections
-#fh5co-testimonial,
-#fh5co-services,
-#fh5co-started,
-#fh5co-footer,
-#fh5co-event,
-#fh5co-couple-story,
-#fh5co-couple,
-#fh5co-gallery,
-.fh5co-section {
-	padding: 4em 0 !important; // Reduced from 7em to 4em to tighten the whole site
-}
-
-// 3. Special fix for the RSVP section "Bist du dabei?" whitespace
-#fh5co-rsvp-form {
-    padding-top: 2em !important;
-    .fh5co-heading {
-        margin-bottom: 1em !important;
-    }
-}
-
-/*
-----------------------------------------------------------------------------------------------------------------
-*/

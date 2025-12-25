@@ -1810,68 +1810,81 @@ form {
 }
 
 /* =========================================
-   FINAL RESPONSIVE FIXES
+   MODERN LAYOUT UPGRADE (Flexbox)
    ========================================= */
 
-/* 1. GOOGLE MAPS FIX */
-iframe {
-    max-width: 100%;
-}
-
-/* 2. HEADER & LAYOUT RESET */
-/* Unlocks the rigid table layout on mobile AND tablets */
-@media screen and (max-width: 992px) {
-    #fh5co-header .display-tc,
-    #fh5co-counter .display-tc,
-    .fh5co-cover .display-tc,
-    #fh5co-event .display-tc {
-        display: block !important;
-        height: auto !important;
-        padding-top: 100px !important;
-        padding-bottom: 60px !important;
-        width: 100% !important;
-    }
-    
-    /* Fix Title Font Size on Tablet/Mobile so it doesn't break */
-    #fh5co-header .display-tc h1 {
-        font-size: 60px !important; /* Smaller than the desktop 100px */
-    }
-}
-
-/* 3. CLOCK FIX (For 3-Digit Days) */
-.flipTimebox {
-    /* Ensure the clock container is wide enough for 3 digits */
-    width: auto;
-    display: inline-block;
-    white-space: nowrap; /* FORCE single line - never wrap */
-    margin: 0 auto 40px auto;
-    
-    /* Base scaling: If it's huge, we shrink it slightly by default */
-    transform-origin: top center;
-}
-
-/* Clock Scaling Logic */
-/* Scale down progressively as screen gets smaller */
-
-@media screen and (max-width: 1200px) {
-    .flipTimebox { transform: scale(0.9); margin-bottom: -20px; }
-}
-
-@media screen and (max-width: 992px) {
-    .flipTimebox { transform: scale(0.8); margin-bottom: -30px; }
-}
-
-@media screen and (max-width: 768px) {
-    /* Tablet Portrait */
-    .flipTimebox { transform: scale(0.7); margin-bottom: -40px; }
-}
-
-@media screen and (max-width: 500px) {
-    /* Mobile Phone */
-    .flipTimebox { transform: scale(0.55); margin-bottom: -50px; }
-}
-
-/* 4. PREVENT SIDE SCROLLING */
+/* 1. Global Safety Fixes */
 html, body {
-    overflow-x: hidden;
+    overflow-x: hidden !important; /* Kills the horizontal scrollbar */
+    width: 100%;
+}
+iframe {
+    max-width: 100%; /* Prevents maps from overflowing */
+}
+
+/* 2. Convert Header & Events to Flexbox 
+   (Replaces the rigid Table-Cell layout) */
+#fh5co-header .display-tc,
+#fh5co-event .display-tc,
+.fh5co-cover .display-tc {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto !important;
+    min-height: 100vh; /* Ensures full height */
+    padding-top: 120px !important; /* Space for Navbar */
+    padding-bottom: 50px !important;
+    width: 100% !important;
+}
+
+/* 3. Fix the Event Boxes Container */
+#fh5co-event .container {
+    width: 100%;
+    max-width: 1100px; /* Prevents it from getting too wide */
+}
+
+/* 4. The Clock - Intelligent Scaling */
+/* We use a fixed scale based on screen width to ensure it fits */
+.flipTimebox {
+    display: block;
+    width: auto;
+    margin: 0 auto 40px auto;
+    transform-origin: top center;
+    /* High Z-Index ensures it doesn't block clicks on things behind/below it */
+    position: relative; 
+    z-index: 10;
+}
+
+/* DESKTOP (Normal) */
+@media screen and (min-width: 1200px) {
+    .flipTimebox { transform: scale(0.9); }
+}
+
+/* LAPTOPS (Small Desktop) */
+@media screen and (max-width: 1199px) {
+    .flipTimebox { transform: scale(0.8); margin-bottom: -20px; }
+}
+
+/* TABLETS (Portrait & Landscape) */
+@media screen and (max-width: 991px) {
+    .flipTimebox { transform: scale(0.65); margin-bottom: -35px; }
+    
+    /* Fix Title overlapping */
+    #fh5co-header h1 {
+        font-size: 50px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+/* MOBILE PHONES */
+@media screen and (max-width: 550px) {
+    .flipTimebox { transform: scale(0.45); margin-bottom: -50px; }
+    
+    /* Ensure padding is tight on mobile */
+    .event-wrap {
+        padding: 20px 10px !important;
+        margin-bottom: 20px;
+    }
 }

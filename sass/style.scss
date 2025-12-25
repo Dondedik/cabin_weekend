@@ -512,113 +512,195 @@ h1, h2, h3, h4, h5, h6, figure {
 ----------------------------------------------------------------------------------------------------------------
 */
 
+// Fix v1: Scale the event boxes for mobile devices
+
+// #fh5co-counter,
+// #fh5co-event {
+// 	height: 850px;
+// 	float: left;
+    
+// 	.display-t,
+// 	.display-tc {
+// 		height: 700px;
+// 		display: table;
+// 		width: 100%;
+// 	}
+
+//     // Fix: This forces the layout to stay within screen edges on mobile
+//     @media screen and (max-width: $screen-sm) {
+//         .display-tc {
+//             display: block !important; 
+//             height: auto !important;
+//             padding: 40px 0;
+//         }
+//     }
+	
+// 	.fh5co-heading {
+// 		h2 {
+// 			color: $brand-white;
+// 		}
+// 		span {
+// 			color: rgba($brand-white,.5);
+// 			text-transform: uppercase;
+// 			font-size: 13px;
+// 			letter-spacing: 2px;
+// 			font-weight: 600;
+// 		}
+// 	}
+
+// 	.overlay {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		right: 0;
+// 		bottom: 0;
+// 		background: rgba(0, 0, 0, .4);
+// 	}
+
+// 	@media screen and (max-width: $screen-sm) {
+// 		height: inherit;
+// 		padding: 7em 0;
+// 		.display-t,
+// 		.display-tc {
+// 			height: inherit;
+// 		}
+// 	}
+
+// 	.event-wrap {
+// 		border: 2px solid rgba($brand-white,.5);
+// 		background: rgba($brand-white,.1);
+// 		padding: 30px;  
+// 		width: 100%;
+// 		float: left;
+// 		box-sizing: border-box; // Prevents the box from poking out
+// 		@include border-radius(4px);
+
+// 		@media screen and (max-width: $screen-sm) {
+// 			margin-bottom: 10px;
+// 			padding: 20px !important; // Less padding on mobile; Note the semicolon
+// 		}
+
+// 		h3 {
+// 			font-size: 20px;
+// 			color: $brand-white;
+// 			border-bottom: 1px solid rgba($brand-white,.5);
+// 			display: block;
+// 			padding-bottom: 20px;
+// 			text-transform: uppercase;
+// 			letter-spacing: 2px;
+
+//             @media screen and (max-width: $screen-sm) {
+//                 font-size: 16px; // Shrink title slightly on mobile
+//             }
+// 		}
+
+// 		p, span {
+// 			display: block;
+// 			color: rgba($brand-white,.8);
+
+//             @media screen and (max-width: $screen-sm) {
+//                 font-size: 13px !important; // Fixes line breaks on mobile; Note the semicolon
+//             }
+// 		}
+
+//  		iframe {
+//             width: 100% !important; // Map stays inside box
+//             border-radius: 4px;
+//             margin-top: 10px;
+//         }
+
+// 		i {
+// 			color: rgba($brand-white,1);
+// 			font-size: 20px;
+// 		}
+
+// 		.event-col {
+// 			width: 50%;
+// 			float: left;
+// 			margin-bottom: 30px;
+// 		}
+// 	} // End of .event-wrap
+// } // End of #fh5co-event
+
+
+
+//Fix v2: + white background and matching whitespace
+
 #fh5co-counter,
 #fh5co-event {
-	height: 850px;
+	height: auto !important; // CHANGED: Removes the 850px height
 	float: left;
+    background: #fff !important; // CHANGED: Force background to white
     
 	.display-t,
 	.display-tc {
-		height: 700px;
-		display: table;
+		height: auto !important; // CHANGED: Removes the 700px height
+		display: block !important; // CHANGED: Table to block for better spacing
 		width: 100%;
 	}
 
-    // Fix: This forces the layout to stay within screen edges on mobile
     @media screen and (max-width: $screen-sm) {
         .display-tc {
-            display: block !important; 
-            height: auto !important;
-            padding: 40px 0;
+            padding: 20px 0;
         }
     }
 	
 	.fh5co-heading {
+		margin-bottom: 2em !important; // Tightens space under "Termine"
 		h2 {
-			color: $brand-white;
-		}
-		span {
-			color: rgba($brand-white,.5);
-			text-transform: uppercase;
-			font-size: 13px;
-			letter-spacing: 2px;
-			font-weight: 600;
+			color: #555 !important; // Grey header
 		}
 	}
 
 	.overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, .4);
-	}
-
-	@media screen and (max-width: $screen-sm) {
-		height: inherit;
-		padding: 7em 0;
-		.display-t,
-		.display-tc {
-			height: inherit;
-		}
+		display: none !important; // CHANGED: Removes the grey dark layer
 	}
 
 	.event-wrap {
-		border: 2px solid rgba($brand-white,.5);
-		background: rgba($brand-white,.1);
+		border: 2px solid #eee !important; // Light border for white background
+		background: #fcfcfc !important; 
 		padding: 30px;  
 		width: 100%;
 		float: left;
-		box-sizing: border-box; // Prevents the box from poking out
+		box-sizing: border-box; 
 		@include border-radius(4px);
 
 		@media screen and (max-width: $screen-sm) {
 			margin-bottom: 10px;
-			padding: 20px !important; // Less padding on mobile; Note the semicolon
+			padding: 20px !important;
 		}
 
 		h3 {
 			font-size: 20px;
-			color: $brand-white;
-			border-bottom: 1px solid rgba($brand-white,.5);
+			color: #444 !important; // Darker text for readability
+			border-bottom: 1px solid #eee !important;
 			display: block;
 			padding-bottom: 20px;
 			text-transform: uppercase;
 			letter-spacing: 2px;
-
-            @media screen and (max-width: $screen-sm) {
-                font-size: 16px; // Shrink title slightly on mobile
-            }
 		}
-
 		p, span {
 			display: block;
-			color: rgba($brand-white,.8);
-
+			color: #666 !important;
             @media screen and (max-width: $screen-sm) {
-                font-size: 13px !important; // Fixes line breaks on mobile; Note the semicolon
+                font-size: 13px !important;
             }
 		}
-
  		iframe {
-            width: 100% !important; // Map stays inside box
+            width: 100% !important; 
             border-radius: 4px;
-            margin-top: 10px;
         }
-
 		i {
-			color: rgba($brand-white,1);
+			color: $brand-primary; // Keep icons pink for a little color
 			font-size: 20px;
 		}
-
 		.event-col {
 			width: 50%;
 			float: left;
 			margin-bottom: 30px;
 		}
-	} // End of .event-wrap
-} // End of #fh5co-event
+	} 
+}
 
 /*
 ----------------------------------------------------------------------------------------------------------------
@@ -976,7 +1058,7 @@ form {
 	}
 }
 
-
+/*
 #fh5co-header,
 #fh5co-counter,
 .fh5co-cover {
@@ -1025,6 +1107,65 @@ form {
 		}
 	}
 }
+----------------------------------------------------------------------------------------------------------------
+--- Header full screen height & matching button color
+----------------------------------------------------------------------------------------------------------------
+*/
+#fh5co-header,
+#fh5co-counter,
+.fh5co-cover {
+	.display-tc {
+		display: table-cell!important;
+		vertical-align: middle;
+		h1, h2 {
+			margin: 0;
+			padding: 0;
+			color: rgba(255,255,255,1);
+		}
+		h1 {
+			margin-bottom: 0px;
+			font-size: 100px;
+			line-height: 1.5;
+			font-family: $font-secondary;
+			@media screen and (max-width: $screen-sm) {
+				font-size: 40px;
+			}
+			@media screen and (max-width: $screen-xs) {
+				font-size: 30px;
+			}
+		}
+		h2 {
+			font-size: 20px;
+			line-height: 1.5;
+			margin-bottom: 30px;
+			@media screen and (max-width: $screen-xs) {
+				font-size: 16px;
+			}
+		}
+		.btn {
+			padding: 15px 30px;
+			background: $brand-white!important;
+			color: #555 !important; // CHANGED THIS: Pink to Grey
+			border: none!important;
+			font-size: 14px;
+			text-transform: uppercase;
+			&:hover {
+				background: $brand-white!important;
+				-webkit-box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
+				-moz-box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
+				box-shadow: 0px 14px 30px -15px rgba(0,0,0,0.75)!important;
+			}
+		}
+	}
+}
+
+.fh5co-cover, .fh5co-cover .display-t, .fh5co-cover .display-tc {
+    height: 100vh !important; // Makes it fit the phone screen height perfectly
+}
+/*
+----------------------------------------------------------------------------------------------------------------
+*/
+
 #fh5co-counter {	
 	text-align: center;
 	.counter {
@@ -1070,52 +1211,9 @@ form {
 ----------------------------------------------------------------------------------------------------------------
 --- Scale the countdown timer for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
+// Fix v3: REMOVE SECONDS & IMPROVE MOBILE LOOK --- */
 */
 
-// Fix v1
-// @media screen and (max-width: 768px) {
-//     .flipTimebox {
-//         display: flex;             /* Centering logic */
-//         justify-content: center;   /* Centering logic */
-//         width: 100%;               /* Ensure it takes full width */
-//         transform: scale(0.75);    /* CHANGED THIS: Shrinks the clock to 75% size on phones */
-//         transform-origin: center;  /* Keeps it centered while shrinking */
-//         margin-bottom: -40px;      /* Pulls the next element up so there isn't a huge gap */
-//     }
-// }
-
-
-
-// Fix v2
-
-// @media screen and (max-width: 768px) {
-//     .flipTimebox {
-//         display: flex !important;           /* Centering logic */
-//         justify-content: center !important;  /* Centering logic */
-//         width: 100% !important;
-        
-//         /* 1. Shrink it slightly more (0.65) to fit all 4 columns */
-//         transform: scale(0.65) !important; 
-//         transform-origin: center center;
-        
-//         /* 2. Remove the extra vertical space created by scaling */
-//         margin-top: -30px;
-//         margin-bottom: -40px;
-//     }
-
-//     .flipTimebox .clock {
-//         /* 3. Force the clock to stay on ONE line */
-//         width: 700px !important;    /* Give it a wide 'virtual' width so it doesn't wrap */
-//         display: flex !important;
-//         justify-content: center !important;
-//         float: none !important;     /* Disable floats that cause wrapping */
-//         white-space: nowrap !important; 
-//     }
-// }
-
-
-
-// Fix v3: REMOVE SECONDS & IMPROVE MOBILE LOOK --- */
 
 // 1. This hides the Seconds globally (or you can wrap it in a media query)
 .flip-clock-divider.seconds, 
@@ -2009,3 +2107,42 @@ form {
 		opacity: 0;
 	}
 }
+
+/*
+----------------------------------------------------------------------------------------------------------------
+--- Global Style Master Overrides
+----------------------------------------------------------------------------------------------------------------
+*/
+
+// 1. Fix all section headings (Grey color and tighter spacing)
+.fh5co-heading {
+    margin-bottom: 2.5em !important; // Reduces whitespace after ALL headers
+    h2 {
+        color: #555 !important; // Force all Pink headers to Grey
+    }
+}
+
+// 2. Reduce huge gaps between main sections
+#fh5co-testimonial,
+#fh5co-services,
+#fh5co-started,
+#fh5co-footer,
+#fh5co-event,
+#fh5co-couple-story,
+#fh5co-couple,
+#fh5co-gallery,
+.fh5co-section {
+	padding: 4em 0 !important; // Reduced from 7em to 4em to tighten the whole site
+}
+
+// 3. Special fix for the RSVP section "Bist du dabei?" whitespace
+#fh5co-rsvp-form {
+    padding-top: 2em !important;
+    .fh5co-heading {
+        margin-bottom: 1em !important;
+    }
+}
+
+/*
+----------------------------------------------------------------------------------------------------------------
+*/

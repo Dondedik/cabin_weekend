@@ -1084,30 +1084,66 @@ form {
 //     }
 // }
 
+
+
 // Fix v2
+
+// @media screen and (max-width: 768px) {
+//     .flipTimebox {
+//         display: flex !important;           /* Centering logic */
+//         justify-content: center !important;  /* Centering logic */
+//         width: 100% !important;
+        
+//         /* 1. Shrink it slightly more (0.65) to fit all 4 columns */
+//         transform: scale(0.65) !important; 
+//         transform-origin: center center;
+        
+//         /* 2. Remove the extra vertical space created by scaling */
+//         margin-top: -30px;
+//         margin-bottom: -40px;
+//     }
+
+//     .flipTimebox .clock {
+//         /* 3. Force the clock to stay on ONE line */
+//         width: 700px !important;    /* Give it a wide 'virtual' width so it doesn't wrap */
+//         display: flex !important;
+//         justify-content: center !important;
+//         float: none !important;     /* Disable floats that cause wrapping */
+//         white-space: nowrap !important; 
+//     }
+// }
+
+
+
+// Fix v3: REMOVE SECONDS & IMPROVE MOBILE LOOK --- */
+
+// 1. This hides the Seconds globally (or you can wrap it in a media query)
+.flip-clock-divider.seconds, 
+.flip-clock-wrapper ul:nth-last-child(1), 
+.flip-clock-wrapper ul:nth-last-child(2) {
+    display: none !important;
+}
 
 @media screen and (max-width: 768px) {
     .flipTimebox {
-        display: flex !important;           /* Centering logic */
-        justify-content: center !important;  /* Centering logic */
+        display: flex !important;
+        justify-content: center !important;
         width: 100% !important;
         
-        /* 1. Shrink it slightly more (0.65) to fit all 4 columns */
-        transform: scale(0.65) !important; 
+        /* With seconds gone, we can use a larger scale! */
+        transform: scale(0.8) !important; 
         transform-origin: center center;
         
-        /* 2. Remove the extra vertical space created by scaling */
-        margin-top: -30px;
-        margin-bottom: -40px;
+        margin-top: -20px;
+        margin-bottom: -20px;
     }
 
     .flipTimebox .clock {
-        /* 3. Force the clock to stay on ONE line */
-        width: 700px !important;    /* Give it a wide 'virtual' width so it doesn't wrap */
-        display: flex !important;
-        justify-content: center !important;
-        float: none !important;     /* Disable floats that cause wrapping */
-        white-space: nowrap !important; 
+        /* Ensure the remaining 3 columns stay centered and don't wrap */
+        width: auto !important; 
+        display: inline-block !important;
+        float: none !important;
+        white-space: nowrap !important;
     }
 }
 

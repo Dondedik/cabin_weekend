@@ -78,6 +78,16 @@
 			event.preventDefault();
 
 		});
+// ----------------------------------------------------------------------------------------------
+// --- Closes menu when a link is clicked (useful for one-page sites) ---
+// ----------------------------------------------------------------------------------------------
+		$('#fh5co-offcanvas').on('click', 'a', function(event){
+			if ( $('body').hasClass('offcanvas') ) {
+    			$('body').removeClass('overflow offcanvas'); // Menü schließen
+    			$('.js-fh5co-nav-toggle').removeClass('active'); // Burger-Icon zurücksetzen
+	    	}
+		});
+// ----------------------------------------------------------------------------------------------
 	};
 
 

@@ -641,7 +641,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .rsvp-form-wrap {
     background: #fff !important;           /* WEISSE KARTE (wie bei den Terminen) */
     border: 1px solid #e6e6e6 !important;  /* DEZENTER RAHMEN */
-    padding: 20px !important;              /* Innenabstand für das Formular */
+    padding: 40px !important;              /* Innenabstand für das Formular */
     border-radius: 4px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Sanfter Schatten */
     width: 100%;
@@ -649,7 +649,7 @@ h1, h2, h3, h4, h5, h6, figure {
     overflow: hidden; 
 
     @media screen and (max-width: $screen-sm) {
-        padding: 10px !important;          /* Platzsparender auf dem iPhone */
+        padding: 20px !important;          /* Platzsparender auf dem iPhone */
     }
 }
 
@@ -2078,3 +2078,20 @@ form {
 		opacity: 0;
 	}
 }
+
+/* 
+--------------------------------------------------------------------------------------------------------------
+--- FIX: Allows scrolling as soon as the navigation menu is closed
+--------------------------------------------------------------------------------------------------------------
+*/
+body.offcanvas {
+    overflow: hidden !important; /* Lock if open */
+}
+
+body {
+    overflow-x: hidden; /* Always allowed when not open */
+}
+
+/* 
+--------------------------------------------------------------------------------------------------------------
+*/

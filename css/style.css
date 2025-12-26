@@ -405,12 +405,7 @@ h1, h2, h3, h4, h5, h6, figure {
 ----------------------------------------------------------------------------------------------------------------
 --- Scale the event boxes for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
-// Fix v9: + add background to matching color + stack icons above the text
-
-// #fh5co-counter,
-// #fh5co-event {
-// 	height: auto !important; 
-// 	float: none !important;      /* FIX: Removes the gap between sections */
+*/
 #fh5co-counter,
 #fh5co-event {
   height: auto !important;
@@ -1023,7 +1018,6 @@ form label {
 ----------------------------------------------------------------------------------------------------------------
 --- Scale the countdown timer for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
-// Fix v3: REMOVE SECONDS & IMPROVE MOBILE LOOK ---
 */
 .flip-clock-divider.seconds,
 .flip-clock-wrapper ul:nth-last-child(1),

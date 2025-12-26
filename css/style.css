@@ -406,12 +406,15 @@ h1, h2, h3, h4, h5, h6, figure {
 --- Scale the event boxes for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
 */
+/* --- EVENT SECTION: RESTORED & FIXED --- */
 #fh5co-counter,
 #fh5co-event {
   height: auto !important;
-  float: left;
+  float: none !important; /* FIX: Removes the gap between sections */
+  display: block !important; /* FIX: Ensures sections stack correctly */
   width: 100%;
-  background: #fff !important;
+  background: rgba(0, 0, 0, 0.04) !important; /* MATCH: Template grey shade */
+  padding: 4em 0 !important; /* Standard vertical spacing */
 }
 #fh5co-counter .display-t,
 #fh5co-counter .display-tc,
@@ -427,21 +430,24 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-counter .event-wrap,
 #fh5co-event .event-wrap {
-  border: 2px solid #ddd !important;
-  background: #f9f9f9 !important;
-  padding: 25px !important;
+  border: 1px solid #e6e6e6 !important;
+  background: #fff !important;
+  padding: 30px !important;
   width: 100%;
   float: left;
   box-sizing: border-box;
   border-radius: 4px;
   margin-bottom: 20px;
+  text-align: center; /* Centers the text and icons */
 }
 #fh5co-counter .event-wrap h3,
 #fh5co-event .event-wrap h3 {
   font-size: 18px;
   color: #444 !important;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
   padding-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap h3,
@@ -461,9 +467,33 @@ h1, h2, h3, h4, h5, h6, figure {
     font-size: 13px !important;
   }
 }
+#fh5co-counter .event-wrap .event-col,
+#fh5co-event .event-wrap .event-col {
+  width: 50% !important;
+  float: left;
+  margin-bottom: 20px;
+  padding: 0 5px;
+}
+#fh5co-counter .event-wrap .event-col i,
+#fh5co-event .event-wrap .event-col i {
+  display: block !important; /* FIX: Symbol OVER content */
+  color: #555 !important;
+  font-size: 24px;
+  margin-bottom: 10px; /* Gap between icon and text */
+}
+#fh5co-counter .event-wrap .event-col span,
+#fh5co-event .event-wrap .event-col span {
+  display: block !important; /* Ensures text stays below the icon */
+}
 #fh5co-counter .event-wrap i,
 #fh5co-event .event-wrap i {
   color: #555 !important;
+  font-size: 18px;
+}
+#fh5co-counter .event-wrap p,
+#fh5co-event .event-wrap p {
+  clear: both; /* Prevents location text from bumping into columns */
+  margin-top: 10px;
 }
 
 /*
@@ -876,41 +906,50 @@ form label {
 ----------------------------------------------------------------------------------------------------------------
 */
 #fh5co-header,
-#fh5co-counter,
 .fh5co-cover {
   height: 100vh !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  width: 100%;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-attachment: scroll !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  float: none !important;
 }
 #fh5co-header .display-t,
 #fh5co-header .display-tc,
-#fh5co-counter .display-t,
-#fh5co-counter .display-tc,
 .fh5co-cover .display-t,
 .fh5co-cover .display-tc {
-  height: 100vh !important;
-  display: table-cell !important;
-  vertical-align: middle;
+  height: auto !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  float: none !important;
+  text-align: center !important;
 }
 #fh5co-header .display-t h1,
 #fh5co-header .display-tc h1,
-#fh5co-counter .display-t h1,
-#fh5co-counter .display-tc h1,
 .fh5co-cover .display-t h1,
 .fh5co-cover .display-tc h1 {
   margin-bottom: 0px;
   font-size: 100px;
   line-height: 1.5;
-  font-family: "Sacramento", Arial, serif;
+  font-family: "Sacramento", Arial, serif !important;
   color: #fff;
+  text-transform: none;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header .display-t h1,
   #fh5co-header .display-tc h1,
-  #fh5co-counter .display-t h1,
-  #fh5co-counter .display-tc h1,
+  .fh5co-cover .display-t h1,
+  .fh5co-cover .display-tc h1 {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #fh5co-header .display-t h1,
+  #fh5co-header .display-tc h1,
   .fh5co-cover .display-t h1,
   .fh5co-cover .display-tc h1 {
     font-size: 40px;
@@ -918,17 +957,15 @@ form label {
 }
 #fh5co-header .display-t .btn,
 #fh5co-header .display-tc .btn,
-#fh5co-counter .display-t .btn,
-#fh5co-counter .display-tc .btn,
 .fh5co-cover .display-t .btn,
 .fh5co-cover .display-tc .btn {
   padding: 15px 30px;
   background: #fff !important;
   color: #555 !important;
   border: none !important;
-  font-size: 14px;
-  text-transform: uppercase;
-  border-radius: 30px;
+  margin-top: 30px;
+  display: inline-block;
+  font-weight: 400;
 }
 
 /*

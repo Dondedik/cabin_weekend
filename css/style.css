@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 
 $brand-primary: #F14E95 !default;
 $brand-secondary: #118DF0 !default; 
@@ -509,6 +510,42 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-top: auto !important; /* Pushes the map to the bottom of the box */
   border-radius: 4px;
   padding-top: 15px;
+}
+
+/*
+----------------------------------------------------------------------------------------------------------------
+*/
+/*
+----------------------------------------------------------------------------------------------------------------
+--- Add tally (RSVP) form styles
+----------------------------------------------------------------------------------------------------------------
+*/
+#fh5co-rsvp-form {
+  padding: 4em 0 !important;
+  background: rgba(0, 0, 0, 0.04) !important; /* Gleiches Grau wie bei den Terminen */
+  clear: both;
+}
+#fh5co-rsvp-form .fh5co-heading {
+  margin-bottom: 3em !important;
+}
+#fh5co-rsvp-form .fh5co-heading h2 {
+  color: #555 !important;
+}
+
+.rsvp-form-wrap {
+  background: #fff !important; /* WEISSE KARTE (wie bei den Terminen) */
+  border: 1px solid #e6e6e6 !important; /* DEZENTER RAHMEN */
+  padding: 20px !important; /* Innenabstand für das Formular */
+  border-radius: 4px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Sanfter Schatten */
+  width: 100%;
+  margin: 0 auto 30px auto;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .rsvp-form-wrap {
+    padding: 10px !important; /* Platzsparender auf dem iPhone */
+  }
 }
 
 /*

@@ -599,7 +599,16 @@ h1, h2, h3, h4, h5, h6, figure {
             line-height: 1.6;
         }
 
-        /* The map alignment fix */
+		/* add to calendar button */
+		.calendar-button-wrapper {
+			margin-top: 25px !important; // Space below the map
+			margin-bottom: 5px !important;
+			display: flex !important;
+			justify-content: center !important; /* Centering */
+			width: 100%;
+		}
+
+        /* map alignment fix */
         iframe {
             margin-top: auto !important; /* Pushes the map to the bottom of the box */
             border-radius: 4px;

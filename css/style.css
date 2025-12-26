@@ -445,7 +445,8 @@ h1, h2, h3, h4, h5, h6, figure {
   display: flex !important;
   flex-direction: column;
   height: 100% !important; /* Forces box to fill the column height */
-  /* The map alignment fix */
+  /* add to calendar button */
+  /* map alignment fix */
 }
 #fh5co-counter .event-wrap h3,
 #fh5co-event .event-wrap h3 {
@@ -494,6 +495,14 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #777 !important;
   font-size: 14px !important;
   line-height: 1.6;
+}
+#fh5co-counter .event-wrap .calendar-button-wrapper,
+#fh5co-event .event-wrap .calendar-button-wrapper {
+  margin-top: 25px !important;
+  margin-bottom: 5px !important;
+  display: flex !important;
+  justify-content: center !important; /* Centering */
+  width: 100%;
 }
 #fh5co-counter .event-wrap iframe,
 #fh5co-event .event-wrap iframe {

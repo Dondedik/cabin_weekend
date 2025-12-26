@@ -521,174 +521,16 @@ h1, h2, h3, h4, h5, h6, figure {
 ----------------------------------------------------------------------------------------------------------------
 --- Scale the event boxes for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
-*/
-
-// Fix v1: Scale the event boxes for mobile devices
-
-// #fh5co-counter,
-// #fh5co-event {
-// 	height: 850px;
-// 	float: left;
-    
-// 	.display-t,
-// 	.display-tc {
-// 		height: 700px;
-// 		display: table;
-// 		width: 100%;
-// 	}
-
-//     // Fix: This forces the layout to stay within screen edges on mobile
-//     @media screen and (max-width: $screen-sm) {
-//         .display-tc {
-//             display: block !important; 
-//             height: auto !important;
-//             padding: 40px 0;
-//         }
-//     }
-	
-// 	.fh5co-heading {
-// 		h2 {
-// 			color: $brand-white;
-// 		}
-// 		span {
-// 			color: rgba($brand-white,.5);
-// 			text-transform: uppercase;
-// 			font-size: 13px;
-// 			letter-spacing: 2px;
-// 			font-weight: 600;
-// 		}
-// 	}
-
-// 	.overlay {
-// 		position: absolute;
-// 		top: 0;
-// 		left: 0;
-// 		right: 0;
-// 		bottom: 0;
-// 		background: rgba(0, 0, 0, .4);
-// 	}
-
-// 	@media screen and (max-width: $screen-sm) {
-// 		height: inherit;
-// 		padding: 7em 0;
-// 		.display-t,
-// 		.display-tc {
-// 			height: inherit;
-// 		}
-// 	}
-
-// 	.event-wrap {
-// 		border: 2px solid rgba($brand-white,.5);
-// 		background: rgba($brand-white,.1);
-// 		padding: 30px;  
-// 		width: 100%;
-// 		float: left;
-// 		box-sizing: border-box; // Prevents the box from poking out
-// 		@include border-radius(4px);
-
-// 		@media screen and (max-width: $screen-sm) {
-// 			margin-bottom: 10px;
-// 			padding: 20px !important; // Less padding on mobile; Note the semicolon
-// 		}
-
-// 		h3 {
-// 			font-size: 20px;
-// 			color: $brand-white;
-// 			border-bottom: 1px solid rgba($brand-white,.5);
-// 			display: block;
-// 			padding-bottom: 20px;
-// 			text-transform: uppercase;
-// 			letter-spacing: 2px;
-
-//             @media screen and (max-width: $screen-sm) {
-//                 font-size: 16px; // Shrink title slightly on mobile
-//             }
-// 		}
-
-// 		p, span {
-// 			display: block;
-// 			color: rgba($brand-white,.8);
-
-//             @media screen and (max-width: $screen-sm) {
-//                 font-size: 13px !important; // Fixes line breaks on mobile; Note the semicolon
-//             }
-// 		}
-
-//  		iframe {
-//             width: 100% !important; // Map stays inside box
-//             border-radius: 4px;
-//             margin-top: 10px;
-//         }
-
-// 		i {
-// 			color: rgba($brand-white,1);
-// 			font-size: 20px;
-// 		}
-
-// 		.event-col {
-// 			width: 50%;
-// 			float: left;
-// 			margin-bottom: 30px;
-// 		}
-// 	} // End of .event-wrap
-// } // End of #fh5co-event
-
-
-
-//Fix v2: + removes grey background and gaps
-
-// #fh5co-counter,
-// #fh5co-event {
-// 	height: auto !important; // FIX: Removes the huge empty gap
-// 	float: left;
-// 	width: 100%;
-// 	background: #fff !important; // FIX: Changes section to White
-    
-// 	.display-t,
-// 	.display-tc {
-// 		height: auto !important;
-// 		display: block !important; // FIX: Removes table behavior that causes gaps
-// 		width: 100%;
-// 	}
-
-// 	.overlay {
-// 		display: none !important; // FIX: Removes the dark grey veil from your screenshot
-// 	}
-
-// 	.event-wrap {
-// 		border: 2px solid #ddd !important; // Darker border for white background
-// 		background: #f9f9f9 !important; 
-// 		padding: 25px !important;
-// 		width: 100%;
-// 		float: left;
-// 		box-sizing: border-box; 
-// 		@include border-radius(4px);
-//         margin-bottom: 20px;
-
-// 		h3 {
-// 			font-size: 18px;
-// 			color: #444 !important; // Grey Title
-// 			border-bottom: 1px solid #ddd;
-// 			padding-bottom: 15px;
-//             @media screen and (max-width: $screen-sm) { font-size: 16px; }
-// 		}
-// 		p, span {
-// 			color: #666 !important; // Grey Text
-//             @media screen and (max-width: $screen-sm) { font-size: 13px !important; }
-// 		}
-//         i { color: #555 !important; } // Icons are now Grey
-// 	} 
-// }
-
-// Fix v3: Fix date and time side by side! Add light grey background
+// Fix v9: + add background to matching color + stack icons above the text
 
 // #fh5co-counter,
 // #fh5co-event {
 // 	height: auto !important; 
-// 	float: left;
+// 	float: none !important;      /* FIX: Removes the gap between sections */
+//     display: block !important;   /* FIX: Ensures sections stack correctly */
 // 	width: 100%;
-// 	background: rgba(0, 0, 0, .04) !important; // FIX: Matches the light grey of other sections
-//     padding: 3em 0 !important;   
+// 	background: rgba(0, 0, 0, .04) !important; /* MATCH: Template grey shade */
+//     padding: 4em 0 !important;   /* Standard vertical spacing */
     
 // 	.display-t,
 // 	.display-tc {
@@ -698,24 +540,27 @@ h1, h2, h3, h4, h5, h6, figure {
 // 	}
 
 // 	.overlay {
-// 		display: none !important; // Keep this hidden to prevent the "dark" look
+// 		display: none !important; 
 // 	}
 
 // 	.event-wrap {
-// 		border: 1px solid #e6e6e6 !important; // Subtle border
-// 		background: #fff !important;           // White box on grey background
-// 		padding: 25px !important;
+// 		border: 1px solid #e6e6e6 !important; 
+// 		background: #fff !important;           
+// 		padding: 30px !important;
 // 		width: 100%;
 // 		float: left;
 // 		box-sizing: border-box; 
 // 		@include border-radius(4px);
 //         margin-bottom: 20px;
+//         text-align: center;      /* Centers the text and icons */
 
 // 		h3 {
 // 			font-size: 18px;
 // 			color: #444 !important;
 // 			border-bottom: 1px solid #eee;
 // 			padding-bottom: 15px;
+//             text-transform: uppercase;
+//             letter-spacing: 2px;
 //             @media screen and (max-width: $screen-sm) { font-size: 16px; }
 // 		}
 // 		p, span {
@@ -724,172 +569,205 @@ h1, h2, h3, h4, h5, h6, figure {
 // 		}
 
 // 		.event-col {
-// 			width: 50% !important; // FIX: Forces Date and Time to stay side-by-side
+// 			width: 50% !important; 
 // 			float: left;
-// 			margin-bottom: 10px;
+// 			margin-bottom: 20px;
 //             padding: 0 5px;
+
+//             i { 
+//                 display: block !important; /* FIX: Symbol OVER content */
+//                 color: #555 !important; 
+//                 font-size: 24px; 
+//                 margin-bottom: 10px;       /* Gap between icon and text */
+//             }
+            
+//             span {
+//                 display: block !important; /* Ensures text stays below the icon */
+//             }
 // 		}
 
 //         i { color: #555 !important; font-size: 18px; }
+        
+//         p {
+//             clear: both; /* Prevents location text from bumping into columns */
+//             margin-top: 10px;
+//         }
 // 	} 
 // }
 
 
 
-// Fix v7: + adjust icons back above the date and time text
-// Fix v8: another try
+// Fix v10: Allow start and end date and time
 
 // #fh5co-counter,
 // #fh5co-event {
-//     height: auto !important; 
-//     width: 100% !important;
-//     float: none !important;              /* FIX: Removes gap above section */
+// 	height: auto !important; 
+// 	float: none !important;      
+//     display: block !important;   
+// 	width: 100%;
+// 	background: rgba(0, 0, 0, .04) !important; 
 //     padding: 4em 0 !important;   
-//     background: transparent;             /* Let the HTML class handle the color */
     
-//     .display-t,
-//     .display-tc {
-//         height: auto !important;
-//         display: block !important; 
-//         width: 100%;
-//     }
+// 	.display-t,
+// 	.display-tc {
+// 		height: auto !important;
+// 		display: block !important; 
+// 		width: 100%;
+// 	}
 
-//     .overlay {
-//         display: none !important; 
-//     }
+// 	.overlay {
+// 		display: none !important; 
+// 	}
 
-//     .event-wrap {
-//         border: 2px solid rgba(255,255,255,1) !important; /* RESTORED: White Border */
-//         background: #fff !important;                       /* RESTORED: White Background */
-//         padding: 30px !important;
-//         width: 100%;
-//         float: left;
-//         box-sizing: border-box; 
-//         @include border-radius(4px);
-//         margin-bottom: 30px;
+// 	.event-wrap {
+// 		border: 1px solid #e6e6e6 !important; 
+// 		background: #fff !important;           
+// 		padding: 30px !important;
+// 		width: 100%;
+// 		float: left;
+// 		box-sizing: border-box; 
+// 		@include border-radius(4px);
+//         margin-bottom: 20px;
 //         text-align: center;
-//         box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Added subtle shadow for depth */
 
-//         h3 {
-//             font-size: 20px;
-//             color: #444 !important;
-//             border-bottom: 1px solid #eee;
-//             padding-bottom: 15px;
-//             margin-bottom: 20px;
-//             font-family: $font-primary;
+// 		h3 {
+// 			font-size: 18px !important; // FORCED UNIFORM SIZE
+// 			color: #444 !important;
+// 			border-bottom: 1px solid #eee;
+// 			padding-bottom: 15px;
 //             text-transform: uppercase;
 //             letter-spacing: 2px;
-//         }
+//             @media screen and (max-width: $screen-sm) { font-size: 16px !important; }
+// 		}
 
-//         .event-col {
-//             width: 50% !important;        
-//             float: left;
-//             margin-bottom: 20px;
-//             padding: 0 10px;
-
-//             i { 
-//                 display: block !important; 
-//                 color: #555 !important; 
-//                 font-size: 28px; 
+//         /* Standardize Icons and Text (Both old .event-col and new .col-xs-6) */
+//         .event-col, .col-xs-6 {
+//             i {
+//                 display: block !important;
+//                 color: #555 !important;
+//                 font-size: 24px !important; // FORCED UNIFORM SIZE
 //                 margin-bottom: 10px;
+//                 font-style: normal;
 //             }
-
 //             span {
-//                 display: block !important; 
+//                 display: block !important;
 //                 color: #666 !important;
-//                 font-size: 14px;
+//                 font-size: 14px !important; // FORCED UNIFORM SIZE
 //                 line-height: 1.5;
+//                 @media screen and (max-width: $screen-sm) { font-size: 13px !important; }
 //             }
 //         }
+
+//         /* Specific fix for the 'Trauung' icons to match the new grid spacing */
+// 		.event-col {
+// 			width: 50% !important; 
+// 			float: left;
+// 			margin-bottom: 20px;
+//             padding: 0 5px;
+// 		}
 
 //         p {
-//             clear: both;                  
+//             clear: both;
 //             margin-top: 20px;
-//             color: #777;
-//             font-size: 15px;
+//             color: #777 !important;
+//             font-size: 14px !important; // FORCED UNIFORM SIZE
+//             line-height: 1.6;
 //         }
 
 //         iframe {
 //             margin-top: 15px;
 //             border-radius: 4px;
 //         }
-//     } 
+// 	} 
 // }
 
 
 
-// Fix v9: v6 + add background to matching color + stack icons above the text
-/* --- EVENT SECTION: RESTORED & FIXED --- */
+// Fix v11: Standardizes event section with equal height
+
 #fh5co-counter,
 #fh5co-event {
-	height: auto !important; 
-	float: none !important;      /* FIX: Removes the gap between sections */
-    display: block !important;   /* FIX: Ensures sections stack correctly */
-	width: 100%;
-	background: rgba(0, 0, 0, .04) !important; /* MATCH: Template grey shade */
-    padding: 4em 0 !important;   /* Standard vertical spacing */
+    height: auto !important; 
+    float: none !important;      
+    display: block !important;   
+    width: 100%;
+    background: rgba(0, 0, 0, .04) !important; 
+    padding: 4em 0 !important;   
     
-	.display-t,
-	.display-tc {
-		height: auto !important;
-		display: block !important; 
-		width: 100%;
-	}
+    /* Flex container for equal height columns */
+    .row-flex {
+        @media screen and (min-width: 768px) {
+            display: flex !important;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
 
-	.overlay {
-		display: none !important; 
-	}
+    /* Make the Bootstrap columns stretchable */
+    .row-flex > div[class*="col-"] {
+        @media screen and (min-width: 768px) {
+            display: flex;
+        }
+    }
 
-	.event-wrap {
-		border: 1px solid #e6e6e6 !important; 
-		background: #fff !important;           
-		padding: 30px !important;
-		width: 100%;
-		float: left;
-		box-sizing: border-box; 
-		@include border-radius(4px);
+    .event-wrap {
+        border: 1px solid #e6e6e6 !important; 
+        background: #fff !important;           
+        padding: 30px !important;
+        width: 100%;
+        box-sizing: border-box; 
+        @include border-radius(4px);
         margin-bottom: 20px;
-        text-align: center;      /* Centers the text and icons */
+        text-align: center;
+        
+        /* Box internal flex logic */
+        display: flex !important;
+        flex-direction: column;
+        height: 100% !important; /* Forces box to fill the column height */
 
-		h3 {
-			font-size: 18px;
-			color: #444 !important;
-			border-bottom: 1px solid #eee;
-			padding-bottom: 15px;
+        h3 {
+            font-size: 18px !important;
+            color: #444 !important;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            @media screen and (max-width: $screen-sm) { font-size: 16px; }
-		}
-		p, span {
-			color: #666 !important;
-            @media screen and (max-width: $screen-sm) { font-size: 13px !important; }
-		}
-
-		.event-col {
-			width: 50% !important; 
-			float: left;
-			margin-bottom: 20px;
-            padding: 0 5px;
-
-            i { 
-                display: block !important; /* FIX: Symbol OVER content */
-                color: #555 !important; 
-                font-size: 24px; 
-                margin-bottom: 10px;       /* Gap between icon and text */
-            }
-            
-            span {
-                display: block !important; /* Ensures text stays below the icon */
-            }
-		}
-
-        i { color: #555 !important; font-size: 18px; }
-        
-        p {
-            clear: both; /* Prevents location text from bumping into columns */
-            margin-top: 10px;
+            @media screen and (max-width: $screen-sm) { font-size: 16px !important; }
         }
-	} 
+
+        .event-meta-row {
+            margin-bottom: 10px;
+            i {
+                display: block !important;
+                color: #555 !important;
+                font-size: 24px !important;
+                margin-bottom: 10px;
+                font-style: normal;
+            }
+            span {
+                display: block !important;
+                color: #666 !important;
+                font-size: 14px !important;
+                line-height: 1.5;
+                @media screen and (max-width: $screen-sm) { font-size: 13px !important; }
+            }
+        }
+
+        p {
+            margin-top: 20px;
+            color: #777 !important;
+            font-size: 14px !important;
+            line-height: 1.6;
+        }
+
+        /* The map alignment fix */
+        iframe {
+            margin-top: auto !important; /* Pushes the map to the bottom of the box */
+            border-radius: 4px;
+            padding-top: 15px;
+        }
+    } 
 }
 
 /*

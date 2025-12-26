@@ -405,28 +405,36 @@ h1, h2, h3, h4, h5, h6, figure {
 ----------------------------------------------------------------------------------------------------------------
 --- Scale the event boxes for mobile devices slightly down to fit better on small screens
 ----------------------------------------------------------------------------------------------------------------
-*/
-/* --- EVENT SECTION: RESTORED & FIXED --- */
+// Fix v9: + add background to matching color + stack icons above the text
+
+// #fh5co-counter,
+// #fh5co-event {
+// 	height: auto !important; 
+// 	float: none !important;      /* FIX: Removes the gap between sections */
 #fh5co-counter,
 #fh5co-event {
   height: auto !important;
-  float: none !important; /* FIX: Removes the gap between sections */
-  display: block !important; /* FIX: Ensures sections stack correctly */
-  width: 100%;
-  background: rgba(0, 0, 0, 0.04) !important; /* MATCH: Template grey shade */
-  padding: 4em 0 !important; /* Standard vertical spacing */
-}
-#fh5co-counter .display-t,
-#fh5co-counter .display-tc,
-#fh5co-event .display-t,
-#fh5co-event .display-tc {
-  height: auto !important;
+  float: none !important;
   display: block !important;
   width: 100%;
+  background: rgba(0, 0, 0, 0.04) !important;
+  padding: 4em 0 !important;
+  /* Flex container for equal height columns */
+  /* Make the Bootstrap columns stretchable */
 }
-#fh5co-counter .overlay,
-#fh5co-event .overlay {
-  display: none !important;
+@media screen and (min-width: 768px) {
+  #fh5co-counter .row-flex,
+  #fh5co-event .row-flex {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  #fh5co-counter .row-flex > div[class*=col-],
+  #fh5co-event .row-flex > div[class*=col-] {
+    display: flex;
+  }
 }
 #fh5co-counter .event-wrap,
 #fh5co-event .event-wrap {
@@ -434,66 +442,69 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #fff !important;
   padding: 30px !important;
   width: 100%;
-  float: left;
   box-sizing: border-box;
   border-radius: 4px;
   margin-bottom: 20px;
-  text-align: center; /* Centers the text and icons */
+  text-align: center;
+  /* Box internal flex logic */
+  display: flex !important;
+  flex-direction: column;
+  height: 100% !important; /* Forces box to fill the column height */
+  /* The map alignment fix */
 }
 #fh5co-counter .event-wrap h3,
 #fh5co-event .event-wrap h3 {
-  font-size: 18px;
+  font-size: 18px !important;
   color: #444 !important;
   border-bottom: 1px solid #eee;
   padding-bottom: 15px;
+  margin-bottom: 25px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap h3,
   #fh5co-event .event-wrap h3 {
-    font-size: 16px;
+    font-size: 16px !important;
   }
 }
-#fh5co-counter .event-wrap p, #fh5co-counter .event-wrap span,
-#fh5co-event .event-wrap p,
-#fh5co-event .event-wrap span {
+#fh5co-counter .event-wrap .event-meta-row,
+#fh5co-event .event-wrap .event-meta-row {
+  margin-bottom: 10px;
+}
+#fh5co-counter .event-wrap .event-meta-row i,
+#fh5co-event .event-wrap .event-meta-row i {
+  display: block !important;
+  color: #555 !important;
+  font-size: 24px !important;
+  margin-bottom: 10px;
+  font-style: normal;
+}
+#fh5co-counter .event-wrap .event-meta-row span,
+#fh5co-event .event-wrap .event-meta-row span {
+  display: block !important;
   color: #666 !important;
+  font-size: 14px !important;
+  line-height: 1.5;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-counter .event-wrap p, #fh5co-counter .event-wrap span,
-  #fh5co-event .event-wrap p,
-  #fh5co-event .event-wrap span {
+  #fh5co-counter .event-wrap .event-meta-row span,
+  #fh5co-event .event-wrap .event-meta-row span {
     font-size: 13px !important;
   }
 }
-#fh5co-counter .event-wrap .event-col,
-#fh5co-event .event-wrap .event-col {
-  width: 50% !important;
-  float: left;
-  margin-bottom: 20px;
-  padding: 0 5px;
-}
-#fh5co-counter .event-wrap .event-col i,
-#fh5co-event .event-wrap .event-col i {
-  display: block !important; /* FIX: Symbol OVER content */
-  color: #555 !important;
-  font-size: 24px;
-  margin-bottom: 10px; /* Gap between icon and text */
-}
-#fh5co-counter .event-wrap .event-col span,
-#fh5co-event .event-wrap .event-col span {
-  display: block !important; /* Ensures text stays below the icon */
-}
-#fh5co-counter .event-wrap i,
-#fh5co-event .event-wrap i {
-  color: #555 !important;
-  font-size: 18px;
-}
 #fh5co-counter .event-wrap p,
 #fh5co-event .event-wrap p {
-  clear: both; /* Prevents location text from bumping into columns */
-  margin-top: 10px;
+  margin-top: 20px;
+  color: #777 !important;
+  font-size: 14px !important;
+  line-height: 1.6;
+}
+#fh5co-counter .event-wrap iframe,
+#fh5co-event .event-wrap iframe {
+  margin-top: auto !important; /* Pushes the map to the bottom of the box */
+  border-radius: 4px;
+  padding-top: 15px;
 }
 
 /*

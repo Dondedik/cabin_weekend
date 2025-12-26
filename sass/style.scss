@@ -2095,3 +2095,44 @@ body {
 /* 
 --------------------------------------------------------------------------------------------------------------
 */
+/* 
+--------------------------------------------------------------------------------------------------------------
+--- Animation for placeholder pulsing...
+--------------------------------------------------------------------------------------------------------------
+*/
+
+.working-animation {
+    display: inline-block;
+    width: 100%;
+    /* CHANGED: Animation jetzt auf dem gesamten Container */
+    animation: pulse-all 2.5s infinite ease-in-out; 
+    
+    i {
+        color: #999 !important;
+        font-size: 40px;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 5px;
+        color: #888;
+    }
+
+    small {
+        font-style: italic;
+        color: #bbb;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}
+
+@keyframes pulse-all {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.03); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* 
+--------------------------------------------------------------------------------------------------------------
+*/

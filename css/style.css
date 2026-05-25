@@ -2069,3 +2069,54 @@ body {
 .time-col {
     white-space: nowrap;
 }
+
+/* 
+--------------------------------------------------------------------------------------------------------------
+--- Einheitliche Abstände aller Hauptsektionen
+--------------------------------------------------------------------------------------------------------------
+*/
+/* Einheitliche Sections */
+
+#fh5co-event,
+#fh5co-rsvp-form,
+#fh5co-packing-list,
+#fh5co-timetable,
+#fh5co-gallery {
+    padding: 60px 0 !important;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+
+    #fh5co-event,
+    #fh5co-rsvp-form,
+    #fh5co-packing-list,
+    #fh5co-timetable,
+    #fh5co-gallery {
+        padding: 40px 0 !important;
+    }
+}
+
+/* Zusätzliche Abstände entfernen */
+
+.fh5co-heading {
+    margin-bottom: 30px !important;
+}
+
+.event-wrap {
+    margin-bottom: 0 !important;
+}
+
+.row-bottom-padded-md {
+    padding-bottom: 0 !important;
+}
+
+.rsvp-form-wrap {
+    margin-bottom: 0 !important;
+}
+
+/* Spezialfall Packliste*/
+#fh5co-packing-list .row-flex {
+    row-gap: 20px;
+}

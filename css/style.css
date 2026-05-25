@@ -452,12 +452,9 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-counter .event-wrap h3,
 #fh5co-event .event-wrap h3 {
   font-size: 18px !important;
-  color: #444 !important;
   border-bottom: 1px solid #eee;
   padding-bottom: 15px;
   margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 @media screen and (max-width: 768px) {
   #fh5co-counter .event-wrap h3,
@@ -2016,6 +2013,59 @@ body {
     opacity: 0.8;
   }
 }
+
+
 /* 
 --------------------------------------------------------------------------------------------------------------
+--- Packing list styles
+--------------------------------------------------------------------------------------------------------------
 */
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-flex > [class*="col-"] {
+    display: flex;
+}
+
+.row-flex .event-wrap {
+    width: 100%;
+}
+
+.packing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.packing-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.packing-list li:last-child {
+    border-bottom: none;
+}
+
+#fh5co-packing-list .event-wrap {
+    margin-bottom: 20px;
+}
+
+#fh5co-packing-list .event-wrap h3 {
+    font-size: 18px !important;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/* 
+--------------------------------------------------------------------------------------------------------------
+--- timetable styles
+--------------------------------------------------------------------------------------------------------------
+*/
+.time-col {
+    white-space: nowrap;
+}
